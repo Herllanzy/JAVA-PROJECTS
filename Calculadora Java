@@ -1,0 +1,44 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String []args){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("==CALCULADORA EM JAVA==");
+
+        System.out.print("Digite um número:");
+        double num1 = sc.nextDouble();
+        System.out.print("Digite um número:");
+        double num2 = sc.nextDouble();
+        System.out.println("Escolha uma operação (+, -, *, /):");
+        char operador = sc.next().charAt(0);
+
+        double resultado = 0;
+        boolean valido = true;
+
+        switch (operador){
+            case '+':
+                resultado = num1 + num2;
+                break;
+            case '-':
+                resultado = num1 - num2;
+                break;
+            case '*':
+                resultado = num1 * num2;
+                break;
+            case '/':
+                if(num2 != 0) {
+                    resultado = num1 / num2;
+                }else{
+                    System.out.println("Erro: Divisão por 0");
+                    valido = false;
+                }
+                break;
+            default:
+                System.out.println("Operador inválido");
+        }
+        if (valido){
+            System.out.println("Resultado:" + resultado);
+        }
+        sc.close();
+    }
+}
